@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}
+Thomsom Reuters
+{% endblock %}
+{% block content %}
+
+        <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+      <div class="container fill ">
+        <div class="row vertical-center ">
+          <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 ">
+              <div class="logo-div ">
+                  <a href="/">
+<img class="logo-thomsom" src="{{ url_for('static', filename='images/logo_thomsom_gigaton.png')}}">
+                  </a>
+              </div>
+              <form action="results" method="post">
+              <div class="form-group text-center div-thomsom">
+                <input type="text" class="input-thomsom" id="search" name="search" placeholder="Pesquise aqui">
+                  <button class="lupa-thomsom" type="submit" id="botao-pesquisa">
+                      <span class="imagem-alinhamento">
+<img  src="{{ url_for('static', filename='images/icon_lupa.jpg')}}" class="icon-lupa">
+                      </span>
+                  </button>
+              </div>
+            </form>
+               <div class="logo-div">
+<img class="logo-thomsom2"  src="{{ url_for('static', filename='images/logo_2_thomsom_gigaton.png')}}">
+               </div>
+
+          </div>
+        </div>
+          <footer class="rodape">
+             No resultado da pesquisa será exibido os documentos que possuam vinculo com a informação digitada
+          </footer>
+      </div>
+
+ <script src="{{ url_for('static', filename='js/vendor/jquery-1.11.2.min.js')}}"> </script>
+ <script src="{{ url_for('static', filename='js/vendor/bootstrap.min.js')}}"> </script>
+ <script src="{{ url_for('static', filename='js/main.js')}}"></script>
+{% endblock %}

@@ -1,0 +1,119 @@
+html, body {height: 100%;}
+
+.fill {
+	min-height: 100%;
+	height: 100%;
+}
+
+.vertical-center {
+	min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+	min-height: 100vh; /* These two lines are counted as one :-)       */
+
+	display: flex;
+	align-items: center;
+}
+
+.tab-body {padding: 10px;}
+//.panel {margin-left: 0px;}
+
+label[for=search-query] {font-size: 4em;}
+#search-query {padding: 20px 20px;}
+
+.advanced-search-panel {display: none;}
+
+.clearfix {clear: both;}
+.debug {border: 1px solid red;}
+
+.thomsom-btn{
+    color: black;
+    background: orange;
+    transition: 0.75s;
+}
+
+.thomsom-btn:hover{
+    color: black;
+    background: white;
+    transition: 0.75s;
+}
+
+.imagem-alinhamento{
+    text-align: center;
+
+}
+.div-thomsom{
+    float: left;
+    width: 100%;
+    height: 40px;
+    margin-top: 7%;
+    border-radius: 99px;
+    border-color: black;
+    border: solid thin;
+
+}
+    .div-thomsom input[type='text']{
+        float: right;
+        width: 94%;
+        height: 100%;
+        border: none;
+        background: transparent;
+    }
+    .div-thomsom button{
+        float: left;
+        focus: none;
+        width: 6%;
+        height: 100%;
+        background: none;
+        border: none;
+        border-radius: 99px 0px 0px 99px;
+    }
+
+    .div-thomsom button:focus{
+    box-shadow: none;
+    outline: none;
+    }
+
+
+.input-thomsom:focus{
+    box-shadow: none;
+    outline: none;
+}
+.logo-thomsom{
+    border-color: none;
+    border-radius: 8px;
+    width:400px;
+    height:100px;
+}
+
+.logo-thomsom2{
+    border-color: none;
+    width:800px;
+    height:250px;
+    right: 20%;
+    position:relative;
+}
+.logo-div{
+    text-align:center;
+}
+.icon-lupa{
+    max-width:48px;
+    max-height:28px;
+    width: auto;
+    height: auto;
+    float: left;
+}
+.botao-pesquisa{
+    height: 100%;
+}
+
+.rodape{
+    text-align: center;
+    border-radius: 8px;
+    margin-left: 20%;
+    margin-right:20%;
+    margin-bottom: 5%;
+    width: 60%;
+    padding: 1%;
+    border: solid black thin;
+
+}
+

@@ -1,0 +1,181 @@
+{% extends 'base.html' %}
+{% block title %}
+Thomsom Reuters
+{% endblock %}
+{% block content %}
+
+    <div style="padding-top: 40px;">
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+                         <div class="logo-div">
+                             <a href="/">
+<img class="logo-thomsom" src="{{ url_for('static', filename='images/logo_thomsom_gigaton.png')}}">
+                             </a>
+                  </div>
+              <form action="#" method="post">
+              <div class="form-group text-center div-thomsom">
+                <input type="text" class="input-thomsom" id="search" name="search" placeholder="Pesquise aqui">
+                  <button id="botao-pesquisa">
+                      <span class="imagem-alinhamento">
+                        <img src="{{ url_for('static', filename='images/icon_lupa.jpg')}}" class="icon-lupa">
+                      </span>
+                  </button>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <div>
+            <ul class="nav nav-tabs " role="tablist">
+              <li role="presentation" class="active"><a href="#results1" aria-controls="results1" role="tab" data-toggle="tab">Fatura</a></li>
+              <li role="presentation"><a href="#results2" aria-controls="results2" role="tab" data-toggle="tab">DUE</a></li>
+              <li role="presentation"><a href="#results3" aria-controls="results3" role="tab" data-toggle="tab"> Produto </a></li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane tab-body active" id="results1">
+                <div class="list-group">
+
+                    {% for item in value['hits']['hits'] %}
+                         {% for i in item['_source']['Dados']%}
+                    {% if  i['ENTIDADE']|string == "FATURA" %}
+                         {% if pes|string in i['DESCRICAO_DETALHADA']|string %}
+
+                    <div class="panel panel-default list-group-item">
+                    <div class="panel-body">
+                      <div class="media">
+
+                        <div class="media-body">
+
+                            <a href="#">
+                          <h4 class="media-heading">
+                                 {{i['FATURA']}}
+                          </h4>
+
+                            </a>
+
+                            <strong> Part number: </strong>{{i['PART_NUMBER']}}
+                            <strong> - Item da Fatura: </strong>{{i['ITEM_FATURA']}}<br>
+                            <strong> Descrição resumida: </strong>{{i['DESCRICAO_RESUMIDA']}}<br>
+                            <strong> Descrição detalhada: </strong>{{i['DESCRICAO_DETALHADA']}}
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                    {% endif %}
+                         {% endif %}
+                         {% endfor %}
+                    {% endfor %}
+
+                </div>
+              </div>
+
+                <div role="tabpanel" class="tab-pane tab-body" id="results2">
+                     <div class="list-group">
+
+                    {% for item in value['hits']['hits'] %}
+                         {% for i in item['_source']['Dados']%}
+                    {% if  i['ENTIDADE']|string == "DUE" %}
+                         {% if pes|string in i['DESCRICAO_DETALHADA']|string %}
+
+                    <div class="panel panel-default list-group-item">
+                    <div class="panel-body">
+                      <div class="media">
+
+                        <div class="media-body">
+
+                            <a href="#">
+                          <h4 class="media-heading">
+                                 {{i['DUE']}}
+                          </h4>
+
+                            </a>
+
+                            <strong> Part number: </strong>{{i['PART_NUMBER']}}
+                            <strong> - Item DUE: </strong>{{i['ITEM_DUE']}}<br>
+                            <strong> Descrição resumida: </strong>{{i['DESCRICAO_RESUMIDA']}}<br>
+                            <strong> Descrição detalhada: </strong>{{i['DESCRICAO_DETALHADA']}}
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                    {% endif %}
+                         {% endif %}
+                         {% endfor %}
+                    {% endfor %}
+              </div>
+
+
+
+
+
+          </div>
+
+                <div role="tabpanel" class="tab-pane tab-body" id="results3">
+                     <div class="list-group">
+
+                    {% for item in value['hits']['hits'] %}
+                         {% for i in item['_source']['Dados']%}
+                    {% if  i['ENTIDADE']|string == "PRODUTO" %}
+                         {% if pes|string in i['DESCRICAO_DETALHADA']|string %}
+
+                    <div class="panel panel-default list-group-item">
+                    <div class="panel-body">
+                      <div class="media">
+
+                        <div class="media-body">
+
+                            <a href="#">
+                          <h4 class="media-heading">
+                                 {{i['ID_PRODUTO']}}
+                          </h4>
+
+                            </a>
+
+                            <strong> Part number: </strong>{{i['PART_NUMBER']}}<br>
+                            <strong> Descrição resumida: </strong>{{i['DESCRICAO_RESUMIDA']}}<br>
+                            <strong> Descrição detalhada: </strong>{{i['DESCRICAO_DETALHADA']}}
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                    {% endif %}
+                         {% endif %}
+                         {% endfor %}
+                    {% endfor %}
+              </div>
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+
+
+ <script src="{{ url_for('static', filename='js/vendor/jquery-1.11.2.min.js')}}"> </script>
+ <script src="{{ url_for('static', filename='js/vendor/bootstrap.min.js')}}"> </script>
+ <script src="{{ url_for('static', filename='js/main.js')}}"></script>
+    </div>
+      </div>
+</div>
+{% endblock %}
+
+
+
+        <div>blah blah blah blah</div>
+

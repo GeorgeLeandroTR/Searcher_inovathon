@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="templates/css/bootstrap.min.css">
+        <link rel="stylesheet" href="templates/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="templates/css/main.css">
+        <title>{{ title }}</title>
+    </head>
+    <body>
+        {% if username == "Denji": %}
+        <h1>Hello my love</h1>
+	{% else %}
+        <h1>Hello {{ username }}</h1>
+	{% endif %}
+    </body>
+</html>
